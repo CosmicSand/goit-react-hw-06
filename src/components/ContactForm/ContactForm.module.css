@@ -1,0 +1,46 @@
+.form {
+  margin-top: 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 20px;
+}
+.input {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.input::placeholder {
+  color: hsla(60, 3%, 71%, 0.597);
+}
+.input:focus,
+.input:hover,
+.input:active {
+  border: px solid #310101;
+  box-shadow: 0 0 2px 0 #000;
+}
+
+.btn {
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  background-color: #000;
+  color: white;
+}
+
+.btn:hover {
+  background-color: rgb(45, 45, 45);
+  box-shadow: 0 0 5px 0 rgb(45, 45, 45);
+}
+
+label + span {
+  color: rgb(191, 1, 1);
+  margin-left: 10px;
+}
