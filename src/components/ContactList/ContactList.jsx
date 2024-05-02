@@ -1,7 +1,9 @@
+import { useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
 import css from "./ContactList.module.css";
 
-function ContactList({ contacts, onDel }) {
+function ContactList({ onDel }) {
+  const contacts = useSelector((state) => state.contacts.items);
   return (
     <ul className={css.list}>
       {contacts.map((contact) => (

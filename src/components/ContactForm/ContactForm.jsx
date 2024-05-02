@@ -2,8 +2,12 @@ import { useId } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from "./ContactForm.module.css";
+import { useDispatch } from "react-redux";
+import { addContact } from "../../redux/store";
 
 function ContactForm({ onAdd }) {
+  const dispatch = useDispatch();
+
   const nameID = useId();
   const numberID = useId();
   const initialInfo = {
@@ -45,7 +49,7 @@ function ContactForm({ onAdd }) {
 
     newContact.number = arrayLikeNumber.join("");
 
-    onAdd(newContact);
+    dispatch(addContact(newContact));
 
     actions.resetForm();
   }

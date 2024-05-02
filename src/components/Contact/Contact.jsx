@@ -1,8 +1,13 @@
 import css from "./Contact.module.css";
 import { IoPersonSharp } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteContact } from "../../redux/store";
 
 function Contact({ contactInfo: { id, name, number }, onDel }) {
+  const dispatch = useDispatch();
+
+  // const contacts = useSelector((state) => state.contacts.items);
   function handleClick(e) {
     const id = e.target.id;
     console.log(id);
@@ -21,7 +26,12 @@ function Contact({ contactInfo: { id, name, number }, onDel }) {
 
         <p className={css.text}>{number}</p>
       </div>
-      <button className={css.btn} type="button" id={id} onClick={handleClick}>
+      <button
+        className={css.btn}
+        type="button"
+        id={id}
+        onClick={(e) => dispatch(deleteContact(e.target.id))}
+      >
         Delete
       </button>
     </>
