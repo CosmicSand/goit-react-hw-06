@@ -1,6 +1,6 @@
 .form {
   margin-top: 20px;
-  border: 1px solid #000;
+  border: 1px solid yellowgreen;
   border-radius: 5px;
   padding: 20px;
 }
@@ -11,12 +11,14 @@
   margin-bottom: 10px;
   padding: 10px;
   width: 300px;
-  border: 1px solid #000;
+  border: 1px solid yellowgreen;
+  color: wheat;
   border-radius: 5px;
 }
 
 .input::placeholder {
-  color: hsla(60, 3%, 71%, 0.597);
+  color: wheat;
+  opacity: 0.3;
 }
 .input:focus,
 .input:hover,
@@ -33,14 +35,24 @@
   border: none;
   background-color: #000;
   color: white;
+  background-color: #4caf50;
+  border: 2px solid yellowgreen;
 }
 
-.btn:hover {
-  background-color: rgb(45, 45, 45);
+.btn:hover,
+.btn:focus,
+.btn:active {
   box-shadow: 0 0 5px 0 rgb(45, 45, 45);
+  background-color: #45a049;
+  border-color: yellow;
 }
 
 label + span {
   color: rgb(191, 1, 1);
   margin-left: 10px;
+}
+label {
+  color: wheat;
+  font-size: 16px;
+  font-weight: 500;
 }

@@ -17,7 +17,7 @@ function Contact({ contactInfo: { id, name, number }, onDel }) {
         <p className={css.text}>{name}</p>
         <br />
 
-        <FaPhone className={css.dude} size="18" />
+        <FaPhone className={css.phone} size="18" />
 
         <p className={css.text}>{number}</p>
       </div>
