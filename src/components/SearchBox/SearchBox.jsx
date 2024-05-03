@@ -1,7 +1,12 @@
 import { useId } from "react";
 import css from "./SearchBox.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { filterContacts } from "../../redux/store";
 
-function SearchBox({ value, onFilter }) {
+function SearchBox() {
+  const dispatch = useDispatch();
+  const value = useSelector((state) => state.filters.name);
+
   const searchId = useId();
 
   return (
@@ -14,7 +19,7 @@ function SearchBox({ value, onFilter }) {
         type="text"
         id={searchId}
         value={value}
-        onChange={(e) => onFilter(e.target.value)}
+        onChange={(e) => dispatch(filterContacts(e.target.value))}
       />
     </>
   );

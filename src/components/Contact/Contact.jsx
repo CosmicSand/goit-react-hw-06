@@ -8,11 +8,6 @@ function Contact({ contactInfo: { id, name, number }, onDel }) {
   const dispatch = useDispatch();
 
   // const contacts = useSelector((state) => state.contacts.items);
-  function handleClick(e) {
-    const id = e.target.id;
-    console.log(id);
-    onDel(id);
-  }
 
   return (
     <>

@@ -24,6 +24,13 @@ export const addContact = (contact) => {
   };
 };
 
+export const filterContacts = (name) => {
+  return {
+    type: "filters/filterContacts",
+    payload: name,
+  };
+};
+
 const rootReducer = (state = initialState, action) => {
   console.log(action);
   switch (action.type) {
@@ -41,6 +48,13 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         contacts: {
           items: [...state.contacts.items, action.payload],
+        },
+      };
+    case "filters/filterContacts":
+      return {
+        ...state,
+        filters: {
+          name: action.payload,
         },
       };
     default:
