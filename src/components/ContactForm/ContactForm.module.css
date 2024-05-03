@@ -19,7 +19,7 @@
 
 .input::placeholder {
   color: wheat;
-  opacity: 0.3;
+  opacity: 0.5;
 }
 .input:focus,
 .input:hover,
