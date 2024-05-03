@@ -1,4 +1,6 @@
-import { createStore } from "redux";
+import { combineReducers, createStore } from "redux";
+import { contactReducer } from "./contactsSlice";
+import { filterReducer } from "./filtersSlice";
 import contacts from "../list.json";
 
 export const initialState = {
@@ -10,55 +12,59 @@ export const initialState = {
   },
 };
 
-export const deleteContact = (id) => {
-  return {
-    type: "contacts/deleteContact",
-    payload: id,
-  };
-};
+// export const deleteContact = (id) => {
+//   return {
+//     type: "contacts/deleteContact",
+//     payload: id,
+//   };
+// };
 
-export const addContact = (contact) => {
-  return {
-    type: "contacts/addContact",
-    payload: contact,
-  };
-};
+// export const addContact = (contact) => {
+//   return {
+//     type: "contacts/addContact",
+//     payload: contact,
+//   };
+// };
 
-export const filterContacts = (name) => {
-  return {
-    type: "filters/filterContacts",
-    payload: name,
-  };
-};
+// export const selectContacts = (name) => {
+//   return {
+//     type: "filters/selectContacts",
+//     payload: name,
+//   };
+// };
 
-const rootReducer = (state = initialState, action) => {
-  console.log(action);
-  switch (action.type) {
-    case "contacts/deleteContact":
-      return {
-        ...state,
-        contacts: {
-          items: state.contacts.items.filter(
-            (contact) => contact.id.toString() !== action.payload
-          ),
-        },
-      };
-    case "contacts/addContact":
-      return {
-        ...state,
-        contacts: {
-          items: [...state.contacts.items, action.payload],
-        },
-      };
-    case "filters/filterContacts":
-      return {
-        ...state,
-        filters: {
-          name: action.payload,
-        },
-      };
-    default:
-      return state;
-  }
-};
+// const rootReducer = (state = initialState, action) => {
+//   console.log(action);
+//   switch (action.type) {
+//     case "contacts/deleteContact":
+//       return {
+//         ...state,
+//         contacts: {
+//           items: state.contacts.items.filter(
+//             (contact) => contact.id.toString() !== action.payload
+//           ),
+//         },
+//       };
+//     case "contacts/addContact":
+//       return {
+//         ...state,
+//         contacts: {
+//           items: [...state.contacts.items, action.payload],
+//         },
+//       };
+//     case "filters/selectContacts":
+//       return {
+//         ...state,
+//         filters: {
+//           name: action.payload,
+//         },
+//       };
+//     default:
+//       return state;
+//   }
+// };
+const rootReducer = combineReducers({
+  contacts: contactReducer,
+  filters: filterReducer,
+});
 export const store = createStore(rootReducer);
