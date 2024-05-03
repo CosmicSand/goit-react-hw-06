@@ -22,6 +22,6 @@
 .input:focus,
 .input:hover,
 .input:active {
-  border: px solid #310101;
-  box-shadow: 0 0 2px 0 #000;
+  border: 1px solid yellow;
+  box-shadow: 0 0 2px 0 yellow;
 }
