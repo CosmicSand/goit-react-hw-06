@@ -4,7 +4,7 @@ import { FaPhone } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteContact } from "../../redux/store";
 
-function Contact({ contactInfo: { id, name, number }, onDel }) {
+function Contact({ contactInfo: { id, name, number } }) {
   const dispatch = useDispatch();
 
   // const contacts = useSelector((state) => state.contacts.items);

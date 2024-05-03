@@ -5,7 +5,7 @@ import css from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/store";
 
-function ContactForm({ onAdd }) {
+function ContactForm() {
   const dispatch = useDispatch();
 
   const nameID = useId();
