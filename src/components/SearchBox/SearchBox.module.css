@@ -11,6 +11,8 @@
   padding: 10px;
   width: 340px;
   border: 1px solid yellowgreen;
+  background-color: #000;
+  color: wheat;
   border-radius: 5px;
 }
 
