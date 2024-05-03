@@ -1,8 +1,9 @@
 .btn {
   /* border: none; */
   background-color: #f54235;
+  font-weight: 600;
   border-color: wheat;
-  color: white;
+  color: yellow;
   transition: all 0.3s ease;
 }
 
