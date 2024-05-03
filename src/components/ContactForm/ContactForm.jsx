@@ -7,7 +7,6 @@ import { addContact } from "../../redux/store";
 
 function ContactForm() {
   const dispatch = useDispatch();
-
   const nameID = useId();
   const numberID = useId();
   const initialInfo = {
@@ -23,6 +22,8 @@ function ContactForm() {
   });
 
   function handleSubmit(values, actions) {
+    console.log(values);
+    console.log(actions);
     const newContact = { id: Date.now(), ...values };
     const arrayLikeNumber = [];
 

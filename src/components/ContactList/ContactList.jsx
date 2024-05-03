@@ -8,7 +8,9 @@ function ContactList() {
       return state.contacts.items;
     } else {
       return state.contacts.items.filter((contact) =>
-        contact.name.toLowerCase().includes(state.filters.name)
+        contact.name
+          .toLowerCase()
+          .includes(state.filters.name.trim().toLowerCase())
       );
     }
   });
