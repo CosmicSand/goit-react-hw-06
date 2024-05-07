@@ -1,4 +1,5 @@
 import { combineReducers, createStore } from "redux";
+import { devToolsEnhancer } from "@redux-devtools/extension";
 import { contactReducer } from "./contactsSlice";
 import { filterReducer } from "./filtersSlice";
 import contacts from "../list.json";
@@ -67,4 +68,5 @@ const rootReducer = combineReducers({
   contacts: contactReducer,
   filters: filterReducer,
 });
-export const store = createStore(rootReducer);
+const enhancer = devToolsEnhancer();
+export const store = createStore(rootReducer, enhancer);

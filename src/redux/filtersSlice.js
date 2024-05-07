@@ -1,16 +1,12 @@
 import { initialState } from "./store";
+import { createAction } from "@reduxjs/toolkit";
 
-export const selectContacts = (name) => {
-  return {
-    type: "filters/selectContacts",
-    payload: name,
-  };
-};
+export const selectContacts = createAction("filters/selectContacts");
 
 export const filterReducer = (state = initialState.filters, action) => {
   console.log(action);
   switch (action.type) {
-    case "filters/selectContacts":
+    case selectContacts.type:
       return {
         ...state,
 
@@ -20,3 +16,28 @@ export const filterReducer = (state = initialState.filters, action) => {
       return state;
   }
 };
+
+// PURE REDUX
+
+// import { initialState } from "./store";
+
+// export const selectContacts = (name) => {
+//   return {
+//     type: "filters/selectContacts",
+//     payload: name,
+//   };
+// };
+
+// export const filterReducer = (state = initialState.filters, action) => {
+//   console.log(action);
+//   switch (action.type) {
+//     case "filters/selectContacts":
+//       return {
+//         ...state,
+
+//         name: action.payload,
+//       };
+//     default:
+//       return state;
+//   }
+// };
