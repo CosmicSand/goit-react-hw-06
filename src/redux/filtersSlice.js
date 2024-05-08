@@ -1,21 +1,37 @@
-import { initialState } from "./store";
-import { createAction } from "@reduxjs/toolkit";
-
+import { createAction, createReducer } from "@reduxjs/toolkit";
+import contactList from "../list.json";
 export const selectContacts = createAction("filters/selectContacts");
-
-export const filterReducer = (state = initialState.filters, action) => {
-  console.log(action);
-  switch (action.type) {
-    case selectContacts.type:
-      return {
-        ...state,
-
-        name: action.payload,
-      };
-    default:
-      return state;
-  }
+const selectContactsInitialState = {
+  contacts: {
+    items: contactList,
+  },
+  filters: {
+    name: "",
+  },
 };
+
+export const filterReducer = createReducer(
+  selectContactsInitialState.filters,
+  (builder) => {
+    builder.addCase(selectContacts, (state, action) => {
+      state.name = action.payload;
+    });
+  }
+);
+
+// export const filterReducer = (state = initialState.filters, action) => {
+//   console.log(action);
+//   switch (action.type) {
+//     case selectContacts.type:
+//       return {
+//         ...state,
+
+//         name: action.payload,
+//       };
+//     default:
+//       return state;
+//   }
+// };
 
 // PURE REDUX
 

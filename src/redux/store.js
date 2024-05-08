@@ -1,17 +1,27 @@
-import { combineReducers, createStore } from "redux";
-import { devToolsEnhancer } from "@redux-devtools/extension";
+// import { combineReducers, createStore } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
+// import { devToolsEnhancer } from "@redux-devtools/extension";
 import { contactReducer } from "./contactsSlice";
 import { filterReducer } from "./filtersSlice";
-import contacts from "../list.json";
+import contactList from "../list.json";
 
 export const initialState = {
   contacts: {
-    items: contacts,
+    items: contactList,
   },
   filters: {
     name: "",
   },
 };
+
+export const store = configureStore({
+  reducer: {
+    contacts: contactReducer,
+    filters: filterReducer,
+  },
+});
+
+// first probe
 
 // export const deleteContact = (id) => {
 //   return {
@@ -64,9 +74,12 @@ export const initialState = {
 //       return state;
 //   }
 // };
-const rootReducer = combineReducers({
-  contacts: contactReducer,
-  filters: filterReducer,
-});
-const enhancer = devToolsEnhancer();
-export const store = createStore(rootReducer, enhancer);
+
+// Pure redux store
+
+// const rootReducer = combineReducers({
+//   contacts: contactReducer,
+//   filters: filterReducer,
+// });
+// const enhancer = devToolsEnhancer();
+// export const store = createStore(rootReducer, enhancer);
