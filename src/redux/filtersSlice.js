@@ -1,5 +1,4 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
-import contactList from "../list.json";
 export const selectContacts = createAction("filters/selectContacts");
 const selectContactsInitialState = {
   filters: {
