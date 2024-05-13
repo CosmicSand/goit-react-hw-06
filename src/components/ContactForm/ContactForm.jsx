@@ -22,7 +22,7 @@ function ContactForm() {
   });
 
   function handleSubmit(values, actions) {
-    const newContact = { id: Date.now(), ...values };
+    const newContact = { id: crypto.randomUUID(), ...values };
     const arrayLikeNumber = [];
 
     // Phone number formatting
